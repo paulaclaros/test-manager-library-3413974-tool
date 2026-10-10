@@ -1,0 +1,12 @@
+{
+  "name": "test-manager-library-3413974-tool",
+  "version": "1.0.0",
+  "description": "Sembrador de datos de demostración para Manager Library a través de la API REST.",
+  "main": "seed.js",
+  "scripts": {
+    "seed": "node seed.js"
+  },
+  "keywords": ["sena", "adso", "manager-library", "seeder", "sdd"],
+  "author": "Paula Claros",
+  "license": "MIT"
+}
