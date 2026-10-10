@@ -39,6 +39,19 @@ async function run() {
     const { access_token: token } = await loginRes.json();
     console.log('✅ Token JWT de administrador obtenido.');
 
+    // 2.1 Registrar bibliotecario de demostración (HU-02)
+    console.log('\n👤 Asegurando usuario bibliotecario de demostración (HU-02)...');
+    const libRes = await fetch(`${API_BASE}/users`, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json', Authorization: `Bearer ${token}` },
+      body: JSON.stringify({ username: 'bibliotecario', password: 'Biblio123*', role: 'librarian' }),
+    });
+    if (libRes.ok) {
+      console.log('✅ Usuario bibliotecario «bibliotecario» (clave: Biblio123*) registrado.');
+    } else {
+      console.log('ℹ️  Usuario bibliotecario ya disponible en el sistema.');
+    }
+
     // 3. Obtener categorías
     console.log('\n3️⃣  Consultando categorías disponibles...');
     const catRes = await fetch(`${API_BASE}/categories`, {
